@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+}
+#game-board {
+    height: 632px;
+    width: 575px;
+    margin: 0 auto;
+    background-color: #f5d443;
+    border: 10px solid #d28f2b80;
+    border-radius: 3px;
+    display: flex;
+    flex-wrap: wrap;
+}
