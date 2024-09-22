@@ -19,6 +19,15 @@ body {
     color: whitesmoke;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Тінь для тексту */
 }
+.heading {
+    font-size: 2,5em;
+}
+.description {
+    font-size: 1,5em;
+}
+small {
+    margin-top: 2em;
+}
 #game-board {
     height: 632px;
     width: 575px;
@@ -26,11 +35,24 @@ body {
     background-color: #f5d443;
     border: 10px solid #d28f2b80;
     border-radius: 3px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    /* 4 elements in a row */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;  /* gap between elements */
+    margin-top: 1em;
 }
-.card {
-    height: 100px;
-    width: 90px;
-    margin: 3px;
+#new-game-button {
+    border: #ffa500 solid 1px;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: #863427;
+    color: white;
+    font-size: 1em;
+    font-family: inherit;
+}
+#new-game-button:hover {
+    background-color: #ffa500;
+    border: #863427 solid 1px;
+    color: #5A271C;
+    cursor: pointer;
 }
