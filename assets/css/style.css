@@ -20,10 +20,10 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Тінь для тексту */
 }
 .heading {
-    font-size: 2,5em;
+    font-size: 2.5em;
 }
 .description {
-    font-size: 1,5em;
+    font-size: 1.5em;
 }
 small {
     margin-top: 2em;
@@ -67,7 +67,7 @@ small {
     width: 100%;
     position: relative;
     transform-style: preserve-3d; /*card turning*/
-    transition: transform 0,5s; /*time in which card will turn*/
+    transition: transform 0.5s; /*time in which card will turn*/
 }
 .card-front, .card-back {
     height: 100%;
@@ -82,4 +82,10 @@ small {
     font-size: 2.5em;
     color: wheat;
     box-shadow: 0.03em 0.03em 0.03em 0.03em rgba(0, 0, 0, 0.1);
+}
+.card.visible:hover .card-inner {
+    transform: rotateY(180deg); /*rotation when click*/
+}
+.card-back {
+    transform: rotateY(180deg); /*rotate by default*/
 }
