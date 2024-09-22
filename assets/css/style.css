@@ -1,5 +1,18 @@
 body {
     text-align: center;
+    margin: 0;
+    /* 1em = 20px */
+    font-size: 20px;
+    /* make all elements center and in column  */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-image: url(../images/oriental-draw-1181836.jpg);
+    background-size: cover;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тінь для тексту */
 }
 #game-board {
     height: 632px;
