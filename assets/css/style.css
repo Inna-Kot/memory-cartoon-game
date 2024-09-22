@@ -56,3 +56,16 @@ small {
     color: #5A271C;
     cursor: pointer;
 }
+.card {
+    height: 5em;
+    width: 5em;
+    perspective: 50em;
+    cursor: pointer;
+}
+.card-inner {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d; /*card turning*/
+    transition: transform 0,5s; /*time in which card will turn*/
+}
