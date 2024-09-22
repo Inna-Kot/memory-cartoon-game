@@ -57,8 +57,8 @@ small {
     cursor: pointer;
 }
 .card {
-    height: 5em;
-    width: 5em;
+    height: 7em;
+    width: 7em;
     perspective: 50em;
     cursor: pointer;
 }
@@ -68,4 +68,18 @@ small {
     position: relative;
     transform-style: preserve-3d; /*card turning*/
     transition: transform 0,5s; /*time in which card will turn*/
+}
+.card-front, .card-back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; /*vertically centered*/
+    background-color: #863427;
+    border-radius: 0.5em;
+    font-size: 2.5em;
+    color: wheat;
+    box-shadow: 0.03em 0.03em 0.03em 0.03em rgba(0, 0, 0, 0.1);
 }
