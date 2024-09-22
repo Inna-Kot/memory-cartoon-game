@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Permanent+Marker&display=swap');
+
 body {
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
     text-align: center;
     margin: 0;
     /* 1em = 20px */
@@ -9,10 +14,10 @@ body {
     align-items: center;
     padding-top: 1em;
     padding-bottom: 1em;
-    background-image: url(../images/oriental-draw-1181836.jpg);
+    background-image: url(../images/cosmos-lighting-1-1163915.jpg);
     background-size: cover;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тінь для тексту */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Тінь для тексту */
 }
 #game-board {
     height: 632px;
