@@ -83,8 +83,8 @@ small {
     color: wheat;
     box-shadow: 0.03em 0.03em 0.03em 0.03em rgba(0, 0, 0, 0.1);
 }
-.card.visible:hover .card-inner {
-    transform: rotateY(180deg); /*rotation when click*/
+.card.visible .card-inner {
+    transform: rotateY(180deg); 
 }
 .card-back {
     transform: rotateY(180deg); /*rotate by default*/
