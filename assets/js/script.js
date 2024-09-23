@@ -16,8 +16,8 @@ startGameButton.addEventListener("click", startGame); /*new game when push on bu
 
 function startGame() {
     [gameNode, victoryText].forEach(node => node.innerHtml = ""); /*clean our board and vinning message when new game begins */
+   
     const cardValues = generateArray(cardElements,cardAmount);/*12 cards*/
-    
     
     cardValues.forEach(renderCard);
 
@@ -68,12 +68,16 @@ function renderCard(emoji) {
 
     card.appendChild(cardInner);
 
-    card.addEventListener("click", handleCardClick.bind(this, card));
+    card.addEventListener("click", () => {
+       handleCardClick(card);
+    });
 
     gameNode.appendChild(card);
 
 } /*pick one card*/
 
-function handleCardClick() {} /*click on a card */
+function handleCardClick(card) {
+    card.classList.add(visibleCardClassname);
+} /*click on a card */
 
 startGame();
