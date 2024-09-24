@@ -6,7 +6,7 @@ const visibleCardClassname = 'visible';/*get visible class name */
 
 const cardFlipTimeoutMs = 500; /*get time during which the card turns */
 
-const cardElements = ['black','catdog','eat','fish','granny','tv']; /*elements that behind cards*/
+const cardElements = ['black.jpg','catdog.jpg','eat.jpg','fish.jpg','granny.jpg','tv.jpg']; /*elements that behind cards*/
 
 const cardAmount = 12; /*amount of cards*/
 
@@ -15,7 +15,7 @@ let visibleCards = []; /*cards that have already been opened */
 startGameButton.addEventListener("click", startGame); /*new game when push on button*/
 
 function startGame() {
-    [gameNode, victoryText].forEach(node => node.innerHtml = ""); /*clean our board and vinning message when new game begins */
+    [gameNode, victoryText].forEach(node => node.innerHTML = ""); /*clean our board and vinning message when new game begins */
    
     const cardValues = generateArray(cardElements,cardAmount);/*12 cards*/
     
@@ -47,7 +47,7 @@ function generateArray(emojis, cardAmount) {
     /*generation of cards(array of 12 elements)*/ 
 } /*for mixing cards in a new game. */
 
-function renderCard(emoji) {
+function renderCard(imageFilename) {
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -61,7 +61,13 @@ function renderCard(emoji) {
     cardBack.classList.add("card-back");
 
     cardFront.textContent = "?";
-    cardBack.textContent = emoji;
+
+    /*attach images to cards*/ 
+    const image =  document.createElement("img");
+    image.src = `assets/images/${imageFilename}`;
+    image.classList.add("card-image");
+    
+    cardBack.appendChild(image);
 
     cardInner.appendChild(cardFront);
     cardInner.appendChild(cardBack);
