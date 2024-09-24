@@ -25,17 +25,17 @@ function startGame() {
 } /*for starting new game */
 
 
-function generateArray(emojis, cardAmount) {
+function generateArray(imageFilenames, cardAmount) {
     const randomArray = []; /*array. put here our generated elements- cards */
     const elementCounts = {}; /*object. count how much times every element meets */
 
-    for (const emoji of emojis) {
-        elementCounts[emoji] = 0; /* */
+    for (const imageFilename of imageFilenames) {
+        elementCounts[imageFilename] = 0; /* */
     }
 
     while (randomArray.length < cardAmount) {
-        const randomIndex = Math.floor(Math.random() * emojis.length);
-        const randomElement = emojis[randomIndex];
+        const randomIndex = Math.floor(Math.random() * imageFilenames.length);
+        const randomElement = imageFilenames[randomIndex];
 
         if (elementCounts[randomElement] < 2) {
             randomArray.push(randomElement);
