@@ -103,3 +103,30 @@ background-color: #863427;
     transform: rotateY(180deg);
 }
 
+/* Media Query for Small Devices */
+@media (max-width: 480px) {
+    .heading {
+        font-size: 1.2em;;
+    }
+    .description {
+        font-size: 0.8em;
+    }
+    #game-board {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5em;
+    }
+    .card {
+        height: 4em;
+        width: 4em;
+    }
+    .card-front, .card-back {
+        font-size: 1em;
+    }
+    #new-game-button {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+    small {
+        font-size: 0.6em;
+    }
+}
