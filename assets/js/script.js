@@ -11,19 +11,18 @@ const cardElements = ['black.jpg','catdog.jpg','eat.jpg','fish.jpg','granny.jpg'
 const cardAmount = 12; /*amount of cards*/
 
 let visibleCards = []; /*cards that have already been opened */
-
+let flippedCards = []; /*cards currently flipped */
 startGameButton.addEventListener("click", startGame); /*new game when push on button*/
 
 function startGame() {
     [gameNode, victoryText].forEach(node => node.innerHTML = ""); /*clean our board and vinning message when new game begins */
-   
-    const cardValues = generateArray(cardElements,cardAmount);/*12 cards*/
+       visibleCards = []; /* Reset visible cards */
+    flippedCards = []; /* Reset flipped cards */
+    const cardValues = generateArray(cardElements, cardAmount); /*12 cards*/
+    console.log(cardValues);
     
     cardValues.forEach(renderCard);
-
-
 } /*for starting new game */
-
 
 function generateArray(imageFilenames, cardAmount) {
     const randomArray = []; /*array. put here our generated elements- cards */
@@ -32,12 +31,13 @@ function generateArray(imageFilenames, cardAmount) {
     for (const imageFilename of imageFilenames) {
         elementCounts[imageFilename] = 0; /* */
     }
+    console.log(elementCounts);
 
     while (randomArray.length < cardAmount) {
         const randomIndex = Math.floor(Math.random() * imageFilenames.length);
         const randomElement = imageFilenames[randomIndex];
 
-        if (elementCounts[randomElement] < 2) {
+        if (elementCounts[randomElement] < 2) { /* each card can appear only twice */
             randomArray.push(randomElement);
             elementCounts[randomElement]++;
         }
@@ -75,15 +75,40 @@ function renderCard(imageFilename) {
     card.appendChild(cardInner);
 
     card.addEventListener("click", () => {
-       handleCardClick(card);
+        handleCardClick(card, imageFilename);
     });
-
     gameNode.appendChild(card);
-
 } /*pick one card*/
 
-function handleCardClick(card) {
+function handleCardClick(card, imageFilename) {
+    // Prevent clicking on an already flipped or matched card
+    if (card.classList.contains(visibleCardClassname) || flippedCards.some(f => f.card === card)) {
+        return;
+    }
+
     card.classList.add(visibleCardClassname);
-} /*click on a card */
+    flippedCards.push({ card, imageFilename });
+    /* If two cards are flipped */
+    if (flippedCards.length === 2) {
+        const [firstCard, secondCard] = flippedCards;
+        /* Check if the two flipped cards match */
+        if (firstCard.imageFilename === secondCard.imageFilename) {
+            visibleCards.push(firstCard.card, secondCard.card);
+            flippedCards = []; /* Reset flipped cards */
+            /* Check if all cards are matched */
+            if (visibleCards.length === cardAmount) {
+                victoryText.textContent = "Congratulations! You won!";
+            }
+        } else {
+            /* Flip the cards back if they don't match after a short delay */
+            setTimeout(() => {
+                firstCard.card.classList.remove(visibleCardClassname);
+                secondCard.card.classList.remove(visibleCardClassname);
+                flippedCards = []; /* Reset flipped cards */
+            }, cardFlipTimeoutMs);
+        }
+    }
+}
+
 
 startGame();
