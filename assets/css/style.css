@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Permanent+Marker&display=swap');
-
+/* Body and general styling */
 body {
     font-family: "Nerko One", cursive;
     font-weight: 400;
@@ -17,7 +17,7 @@ body {
     background-image: url(../images/cosmos-lighting-1-1163915.jpg);
     background-size: cover;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Тінь для тексту */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 .heading {
     font-size: 2.5em;
@@ -29,17 +29,11 @@ small {
     margin-top: 2em;
 }
 #game-board {
-   /* height: 632px;
-    width: 100%;
-    max-width: 575px;
-    margin: 0 auto;
-    background-color: #f5d443;
-    border: 10px solid #d28f2b80;
-    border-radius: 3px; */
+   
     display: grid;
-    /* 4 elements in a row */
+   
     grid-template-columns: repeat(4, 1fr);
-    gap: 1em;  /* gap between elements */
+    gap: 1em;  
     margin-top: 1em;
 }
 #new-game-button {
@@ -57,20 +51,23 @@ small {
     color: #5A271C;
     cursor: pointer;
 }
+/* Card container styling */
 .card {
     height: 7em;
     width: 7em;
     perspective: 50em;
     cursor: pointer;
 }
+/* The card-inner class handles the 3D flipping effect */
 .card-inner {
     height: 100%;
     width: 100%;
     position: relative;
     transform-style: preserve-3d; /*card turning*/
     transition: transform 0.5s; /*time in which card will turn*/
-    overflow: hidden;
+   
 }
+/* Front and back card styling */
 .card-front, .card-back {
     height: 100%;
     width: 100%;
@@ -79,27 +76,30 @@ small {
     display: flex;
     justify-content: center;
     align-items: center; /*vertically centered*/
-    background-color: #863427;
     border-radius: 0.5em;
     font-size: 2.5em;
     color: wheat;
     box-shadow: 0.03em 0.03em 0.03em 0.03em rgba(0, 0, 0, 0.1);
 }
-.card.visible .card-inner {
-    transform: rotateY(180deg); 
+/* Front of the card with the question mark */
+.card-front {
+background-color: #863427;
 }
+/* Back of the card with the image */
+
 .card-back {
+    background-color: #863427;
     transform: rotateY(180deg); /*rotate by default*/
 }
+/* Image inside the back of the card */
 .card-image {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-}
-
-.card-back img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 0.5em;
 }
+/* When the card is flipped, rotate it */
+.card.visible .card-inner {
+    transform: rotateY(180deg);
+}
+
