@@ -2,6 +2,9 @@
 
 # Memory Cartoon Game
 
+![Responsive Game Screenshot](screenshots/responsive-Game.png)
+
+
 ## Project Overview
 
 Memory Cartoon Game is a browser-based card matching game built with HTML, CSS, and JavaScript. The goal of the game is to find all matching pairs of cards by flipping two cards at a time.
