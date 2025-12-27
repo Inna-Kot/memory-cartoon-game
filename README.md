@@ -2,7 +2,7 @@
 
 # Memory Cartoon Game
 
-![Responsive Game Screenshot](screenshots/responsive-Game.png)
+![Responsive Game Screenshot](assets/screenshots/responsive-Game.png)
 
 
 ## Project Overview
