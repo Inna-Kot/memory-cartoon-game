@@ -103,6 +103,8 @@ Locked the board immediately when the second card is flipped and unlocked it onl
 ## Deployment
 
 The project was deployed using **GitHub Pages**.
+- Repository: https://github.com/Inna-Kot/memory-cartoon-game
+- Live site: https://inna-kot.github.io/memory-cartoon-game/
 
 ### Deployment Steps
 
