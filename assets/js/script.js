@@ -12,6 +12,7 @@ const cardAmount = 12; /*amount of cards*/
 
 let visibleCards = []; /*cards that have already been opened */
 let flippedCards = []; /*cards currently flipped */
+let lockBoard = false; /*to prevent clicking on more than 2 cards at a time */
 startGameButton.addEventListener("click", startGame); /*new game when push on button*/
 
 function startGame() {
@@ -81,33 +82,41 @@ function renderCard(imageFilename) {
 } /*pick one card*/
 
 function handleCardClick(card, imageFilename) {
-    // Prevent clicking on an already flipped or matched card
-    if (card.classList.contains(visibleCardClassname) || flippedCards.some(f => f.card === card)) {
-        return;
-    }
+  // If the board is locked (during flip back animation) or the card is already visible, ignore click
+  if (lockBoard) return;
+  // Prevent clicking on an already flipped or matched card
+  if (
+    card.classList.contains(visibleCardClassname) ||
+    flippedCards.some((f) => f.card === card)
+  ) {
+    return;
+  }
 
-    card.classList.add(visibleCardClassname);
-    flippedCards.push({ card, imageFilename });
-    /* If two cards are flipped */
-    if (flippedCards.length === 2) {
-        const [firstCard, secondCard] = flippedCards;
-        /* Check if the two flipped cards match */
-        if (firstCard.imageFilename === secondCard.imageFilename) {
-            visibleCards.push(firstCard.card, secondCard.card);
-            flippedCards = []; /* Reset flipped cards */
-            /* Check if all cards are matched */
-            if (visibleCards.length === cardAmount) {
-                victoryText.textContent = "Congratulations! You won!";
-            }
-        } else {
-            /* Flip the cards back if they don't match after a short delay */
-            setTimeout(() => {
-                firstCard.card.classList.remove(visibleCardClassname);
-                secondCard.card.classList.remove(visibleCardClassname);
-                flippedCards = []; /* Reset flipped cards */
-            }, cardFlipTimeoutMs);
-        }
+  card.classList.add(visibleCardClassname);
+  flippedCards.push({ card, imageFilename });
+  /* If two cards are flipped */
+  if (flippedCards.length === 2) {
+    const [firstCard, secondCard] = flippedCards;
+    /* Check if the two flipped cards match */
+    if (firstCard.imageFilename === secondCard.imageFilename) {
+      visibleCards.push(firstCard.card, secondCard.card);
+      flippedCards = []; /* Reset flipped cards */
+      /* Check if all cards are matched */
+      if (visibleCards.length === cardAmount) {
+        victoryText.textContent = "Congratulations! You won!";
+      }
+    } else {
+      // Cards do not match — lock board during flip back
+      lockBoard = true;
+      /* Flip the cards back if they don't match after a short delay */
+      setTimeout(() => {
+        firstCard.card.classList.remove(visibleCardClassname);
+        secondCard.card.classList.remove(visibleCardClassname);
+        flippedCards = []; /* Reset flipped cards */
+        lockBoard = false; // Unlock the board
+      }, cardFlipTimeoutMs);
     }
+  }
 }
 
 
