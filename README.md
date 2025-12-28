@@ -38,6 +38,8 @@ This project was created as **Portfolio Project 2 (JavaScript Essentials)** for 
 - The game ends when all pairs are matched
 
 ---
+### Game in Progress
+![Game in Progress](assets/screenshots/gameplay.png)
 
 ## Features
 
@@ -79,6 +81,7 @@ This project was created as **Portfolio Project 2 (JavaScript Essentials)** for 
 - Verified that unmatched cards flip back after delay
 - Verified that rapid clicking does not break game logic
 - Verified that New Game resets the board correctly
+- Verified that defensive feedback message appears when clicking cards too quickly
 
 ---
 
