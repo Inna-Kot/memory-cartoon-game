@@ -21,6 +21,13 @@ const cardAmount = 12; /*amount of cards*/
 
 const feedbackMessage = document.querySelector("#feedback-message");
 
+const friendlyMessages = [
+  "Take it easy, speedy! 🐢",
+  "Oops! Slow down and match carefully! 😊",
+  "Hold on! Let’s enjoy the game at a normal pace! 😎",
+];
+
+
 let visibleCards = []; /*cards that have already been opened */
 let flippedCards = []; /*cards currently flipped */
 let lockBoard = false; /*to prevent clicking on more than 2 cards at a time */
@@ -136,5 +143,7 @@ function handleCardClick(card, imageFilename) {
     }
   }
 }
+
+
 
 startGame();
