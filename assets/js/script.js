@@ -124,7 +124,10 @@ function renderCard(imageFilename) {
 
 function handleCardClick(card, imageFilename) {
   // If the board is locked (during flip back animation) or the card is already visible, ignore click
-  if (lockBoard) return;
+  if (lockBoard) {
+    showFeedback(); // Friendly feedback for rapid clicking
+    return;
+  }
   // Prevent clicking on an already flipped or matched card
   if (
     card.classList.contains(visibleCardClassname) ||
