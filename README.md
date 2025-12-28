@@ -171,3 +171,5 @@ When users click cards too quickly, a small message appears at the top of the ga
 
 The message includes an **OK button** to close it and does not interrupt the game.
 
+### Rapid Click Feedback
+![Feedback Popup](assets/screenshots/feedback-popup.png)
