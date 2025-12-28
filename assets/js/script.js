@@ -27,6 +27,22 @@ const friendlyMessages = [
   "Hold on! Let’s enjoy the game at a normal pace! 😎",
 ];
 
+function showFeedback() {
+  const randomMessage =
+    friendlyMessages[Math.floor(Math.random() * friendlyMessages.length)];
+  feedbackMessage.innerHTML = `
+    <p>${randomMessage}</p>
+    <button id="close-feedback">OK</button>
+  `;
+  feedbackMessage.style.display = "block";
+
+  const closeBtn = document.querySelector("#close-feedback");
+  closeBtn.addEventListener("click", () => {
+    feedbackMessage.style.display = "none";
+  });
+}
+
+
 
 let visibleCards = []; /*cards that have already been opened */
 let flippedCards = []; /*cards currently flipped */
