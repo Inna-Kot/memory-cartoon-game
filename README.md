@@ -150,3 +150,24 @@ To run the project locally:
 - Code Institute course material
 - Mentor support
 - Student community on Slack
+
+## Project Improvements After Assessment Feedback
+
+- Reviewed assessment feedback and implemented fixes and improvements.
+- Fixed gameplay bugs related to rapid clicking on cards.
+- Added **friendly pop-up feedback messages** when users click too quickly on cards. These messages do not block the game and can be easily dismissed.
+- Ensured more frequent and logical Git commits after each code change.
+- Defensive design implemented to improve user experience and prevent unexpected behavior.
+
+---
+
+## Defensive Design: Rapid Click Feedback
+
+When users click cards too quickly, a small message appears at the top of the game board with a friendly note. Examples of messages:
+
+- "Take it easy, speedy! 🐢"
+- "Oops! Slow down and match carefully! 😊"
+- "Hold on! Let’s enjoy the game at a normal pace! 😎"
+
+The message includes an **OK button** to close it and does not interrupt the game.
+
