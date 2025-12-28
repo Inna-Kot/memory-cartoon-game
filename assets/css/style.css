@@ -1,132 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Permanent+Marker&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&family=Permanent+Marker&display=swap");
 /* Body and general styling */
 body {
-    font-family: "Nerko One", cursive;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    margin: 0;
-    /* 1em = 20px */
-    font-size: 20px;
-    /* make all elements center and in column  */
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    background-image: url(../images/cosmos-lighting-1-1163915.jpg);
-    background-size: cover;
-    color: whitesmoke;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin: 0;
+  /* 1em = 20px */
+  font-size: 20px;
+  /* make all elements center and in column  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-image: url(../images/cosmos-lighting-1-1163915.jpg);
+  background-size: cover;
+  color: whitesmoke;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 .heading {
-    font-size: 2.5em;
+  font-size: 2.5em;
 }
 .description {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 small {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 #game-board {
-   
-    display: grid;
-   
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1em;  
-    margin-top: 1em;
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 1em;
 }
 #new-game-button {
-    border: #ffa500 solid 1px;
-    border-radius: 10px;
-    padding: 7px;
-    background-color: #863427;
-    color: white;
-    font-size: 1em;
-    font-family: inherit;
+  border: #ffa500 solid 1px;
+  border-radius: 10px;
+  padding: 7px;
+  background-color: #863427;
+  color: white;
+  font-size: 1em;
+  font-family: inherit;
 }
 #new-game-button:hover {
-    background-color: #ffa500;
-    border: #863427 solid 1px;
-    color: #5A271C;
-    cursor: pointer;
+  background-color: #ffa500;
+  border: #863427 solid 1px;
+  color: #5a271c;
+  cursor: pointer;
 }
 /* Card container styling */
 .card {
-    height: 7em;
-    width: 7em;
-    perspective: 50em;
-    cursor: pointer;
+  height: 7em;
+  width: 7em;
+  perspective: 50em;
+  cursor: pointer;
 }
 /* The card-inner class handles the 3D flipping effect */
 .card-inner {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    transform-style: preserve-3d; /*card turning*/
-    transition: transform 0.5s; /*time in which card will turn*/
-   
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d; /*card turning*/
+  transition: transform 0.5s; /*time in which card will turn*/
 }
 /* Front and back card styling */
-.card-front, .card-back {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center; /*vertically centered*/
-    border-radius: 0.5em;
-    font-size: 2.5em;
-    color: wheat;
-    box-shadow: 0.03em 0.03em 0.03em 0.03em rgba(0, 0, 0, 0.1);
+.card-front,
+.card-back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /*vertically centered*/
+  border-radius: 0.5em;
+  font-size: 2.5em;
+  color: wheat;
+  box-shadow: 0.03em 0.03em 0.03em 0.03em rgba(0, 0, 0, 0.1);
 }
 /* Front of the card with the question mark */
 .card-front {
-background-color: #863427;
+  background-color: #863427;
 }
 /* Back of the card with the image */
 
 .card-back {
-    background-color: #863427;
-    transform: rotateY(180deg); /*rotate by default*/
+  background-color: #863427;
+  transform: rotateY(180deg); /*rotate by default*/
 }
 /* Image inside the back of the card */
 .card-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    border-radius: 0.5em;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 0.5em;
 }
 /* When the card is flipped, rotate it */
 .card.visible .card-inner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 /* Media Query for Small Devices */
 @media (max-width: 480px) {
-    .heading {
-        font-size: 1.2em;;
-    }
-    .description {
-        font-size: 0.8em;
-    }
-    #game-board {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5em;
-    }
-    .card {
-        height: 4em;
-        width: 4em;
-    }
-    .card-front, .card-back {
-        font-size: 1em;
-    }
-    #new-game-button {
-        font-size: 0.8em;
-        padding: 5px;
-    }
-    small {
-        font-size: 0.6em;
-    }
+  .heading {
+    font-size: 1.2em;
+  }
+  .description {
+    font-size: 0.8em;
+  }
+  #game-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+  }
+  .card {
+    height: 4em;
+    width: 4em;
+  }
+  .card-front,
+  .card-back {
+    font-size: 1em;
+  }
+  #new-game-button {
+    font-size: 0.8em;
+    padding: 5px;
+  }
+  small {
+    font-size: 0.6em;
+  }
+}
+#feedback-message {
+  margin-top: 1em;
+  font-size: 1.2em;
+  color: #ffcc00;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+#close-feedback {
+  margin-top: 12px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffcc00;
+  cursor: pointer;
+}
+#close-feedback:hover {
+  background-color: #ffb703;
 }
