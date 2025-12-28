@@ -49,6 +49,8 @@ This project was created as **Portfolio Project 2 (JavaScript Essentials)** for 
 - Victory message when all pairs are found
 - New Game button to restart the game
 - Responsive layout for different screen sizes
+- Friendly feedback message displayed during rapid card clicking to prevent unexpected user interaction (defensive design)
+
 
 ### Future Features
 
